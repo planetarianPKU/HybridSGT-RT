@@ -115,7 +115,7 @@ If you need additional datasets or customized processing, feel free to contact t
 
 - Komatitsch, D., & Tromp, J. (1999). Introduction to the spectral element method for three-dimensional seismic wave propagation. Geophysical Journal International, 139(3), 806–822. 
 - Wu, W., Ni, S., Zhan, Z., & Wei, S. (2018). An SEM-DSM three-dimensional hybrid method for modelling teleseismic waves with complicated source-side structures. Geophysical Journal International, 215(1), 133–154. 
-- Sun et al., 2025
+- Sun, J. (2025). SGT Dataset and MATLAB codes for Hybrid Simulation. Zenodo. https://doi.org/10.5281/zenodo.17624366.
 ---
 
 
