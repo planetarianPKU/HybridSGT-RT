@@ -18,16 +18,17 @@ Synthetic waveforms are obtained by integrating traction–displacement terms ov
 
 ```
 SGT_upload/
-    binfiles/
-        MESH_IN/        # IN-MESH geometry & material binaries
-        MESH_OUT/       # OUT-MESH coordinate binaries
-    SSGT/
-        eventXXX/       # IN-side SGT MAT files
-    RSGT/
-        station/
-            dirX/       # OUT-side SGT MAT files
-    OUTPUT/
-        station/        # Final synthetic seismograms
+├── binfiles/
+│   ├── MESH_IN/        # IN-MESH geometry & material binaries
+│   └── MESH_OUT/       # OUT-MESH coordinate binaries
+├── SSGT/
+│   └── eventXXX/       # IN-side SGT MAT files
+├── RSGT/
+│   └── station/
+│       └── dirX/       # OUT-side SGT MAT files
+└── OUTPUT/
+    └── station/        # Final synthetic seismograms
+
 ```
 
 
