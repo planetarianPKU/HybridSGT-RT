@@ -45,7 +45,38 @@ Follow the steps below to prepare the receiver-side SGT database:
 
 ---
 
-## **3. Output**
+
+## **3. Code Structure**
+
+The project contains three main MATLAB scripts/functions:
+
+### **• GLL_main_program.m**
+The main workflow that:
+- Loops over events, stations, and source components  
+- Loads required SGT datasets  
+- Calls the RP and GLL integration modules  
+- Generates and saves the final synthetic seismograms  
+
+### **• prepare_data.m**
+A preprocessing module that:
+- Reads SGT MAT files (SSGT and RSGT)
+- Extracts all required physical quantities  
+- Reorders, aligns, and consolidates coordinates, materials, Jacobians, GLL weights, and SGT tensors  
+- Outputs a standardized dataset for the RP and GLL stages  
+
+### **• get_GLLintegral.m**
+The numerical integration module that:
+- Performs SEM-style GLL surface integration  
+- Computes the traction–displacement integrals on all five boundary surfaces  
+- Produces the final waveform components (xmin, xmax, ymin, ymax, bottom) and their sum  
+
+These modules together implement the complete representation-theorem–based synthetic waveform generation workflow.
+
+
+---
+
+
+## **4. Output**
 
 For each station and each force component, the program produces a `.mat` file containing:
 
@@ -61,7 +92,7 @@ These correspond to the five RP boundary integrals.
 
 ---
 
-## **4. Notes on Provided Data**
+## **5. Notes on Provided Data**
 
 Due to upload size limitations, only the **RSGT databases for two stations** are included in this repository.
 
@@ -70,7 +101,7 @@ If additional stations or full datasets are required,
 
 ---
 
-## **5. SGT Database Information**
+## **6. SGT Database Information**
 
 The SGT database is extracted **directly from SPECFEM3D_Cartesian** (Komatitsch & Tromp, 1999), ensuring full numerical accuracy.
 
@@ -80,11 +111,12 @@ If you need additional datasets or customized processing, feel free to contact t
 
 ---
 
-## **6. References**
+## **7. References**
 
 - Komatitsch, D., & Tromp, J. (1999). Introduction to the spectral element method for three-dimensional seismic wave propagation. Geophysical Journal International, 139(3), 806–822. 
 - Wu, W., Ni, S., Zhan, Z., & Wei, S. (2018). An SEM-DSM three-dimensional hybrid method for modelling teleseismic waves with complicated source-side structures. Geophysical Journal International, 215(1), 133–154. 
-
+- Sun et al., 2025
 ---
+
 
 
