@@ -1,3 +1,7 @@
+% Author: Jingnan Sun
+% Affiliation: Peking University
+% Date: 2025.11
+
 % ============================================================
 % Main Program: Synthesize velocity waveforms using the
 %               displacement representation theorem.
@@ -104,3 +108,39 @@ xlim([0 70]);           % Show first 70 seconds
 xlabel('Time (s)');
 title('Synthetic Velocity');
 grid on;
+
+
+%%
+% D is your structure from get_RP()
+
+faces = {'pxmin','pxmax','pymin','pymax','pzbottom'};
+colors = lines(length(faces));  % automatic distinguishable colors
+
+figure;
+hold on;
+grid on;
+axis equal;
+
+points = D.points2_reordered;   % N × 3 coordinates
+
+for i = 1:length(faces)
+
+    face_name = faces{i};
+    face_struct = D.face_results.(face_name);
+
+    face_idx = face_struct.faceidx;  % indices for this surface
+    coords = points(face_idx, :);    % extract coordinates
+
+    scatter3(coords(:,1), coords(:,2), coords(:,3), ...
+             20, colors(i,:), 'filled');
+
+    % add label in plot
+    text(mean(coords(:,1)), mean(coords(:,2)), mean(coords(:,3)), ...
+         ['  ' face_name], 'Color', colors(i,:), 'FontSize', 10);
+end
+
+xlabel('X'); ylabel('Y'); zlabel('Z');
+title('Boundary Face Node Locations');
+view(3);
+
+
